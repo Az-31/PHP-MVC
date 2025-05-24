@@ -1,5 +1,7 @@
 <?php 
 
-define('BASEURL', 'http://localhost/phpmvc/public');
+// pindah ke app/config/config.php
+
+// define('BASEURL', 'http://localhost/phpmvc/public');
 
 ?>
