@@ -1,10 +1,10 @@
 <div class="container mt-4">
 
-<div class="row">
-    <div class="col-lg-6">
-        <?php Flasher::flash(); ?>
+    <div class="row">
+        <div class="col-lg-6">
+            <?php Flasher::flash(); ?>
+        </div>
     </div>
-</div>
     <div class="row">
         <div class="col-lg-6">
             <!-- Button trigger modal -->
@@ -14,8 +14,9 @@
             <h3>Daftar Mahasiswa</h3>
             <ul class="list-group">
                 <?php foreach ($data['mhs'] as $mhs) : ?>
-                    <li class="list-group-item d-flex justify-content-between align-items-center"><?= $mhs['nama']; ?>
-                        <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge text-bg-primary" style="text-decoration: none;">Detail</a>
+                    <li class="list-group-item"><?= $mhs['nama']; ?>
+                        <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge text-bg-danger float-end me-1" id="deleteMhs" style="text-decoration: none;">Hapus</a>
+                        <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge text-bg-primary float-end me-3" style="text-decoration: none;">Detail</a>
                     </li>
                 <?php endforeach; ?>
             </ul>
