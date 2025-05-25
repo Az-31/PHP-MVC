@@ -50,7 +50,7 @@ class Mahasiswa_model
         $query = "INSERT INTO mahasiswa (nama, nim, email, jurusan) 
                   VALUES (:nama, :nim, :email, :jurusan)";
         $this->db->query($query);
-        
+
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('nim', $data['nim']);
         $this->db->bind('email', $data['email']);
@@ -72,12 +72,12 @@ class Mahasiswa_model
         // return 0;
     }
 
-        public function ubahDataMahasiswa($data)
+    public function ubahDataMahasiswa($data)
     {
         // var_dump($data);
         $query = "UPDATE mahasiswa SET nama=:nama, nim=:nim, email=:email, jurusan=:jurusan WHERE id=:id";
         $this->db->query($query);
-        
+
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('nim', $data['nim']);
         $this->db->bind('email', $data['email']);
@@ -88,5 +88,15 @@ class Mahasiswa_model
 
         return $this->db->rowCount();
         // return 0;
+    }
+
+    public function cariDataMahasiswa()
+    {
+        $keyword = $_POST['keyword'];
+        $query = "SELECT * FROM mahasiswa WHERE nama LIKE :keyword";
+
+        $this->db->query($query);
+        $this->db->bind('keyword', "%" . $keyword . "%");
+        return $this->db->resultSet();
     }
 }
